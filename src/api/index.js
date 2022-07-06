@@ -13,3 +13,5 @@ export const fetchAllPosts = async () => {
         console.error('Trouble fetching posts', error)
     }
 }
+
+//fetch my post function

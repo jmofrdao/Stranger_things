@@ -1,16 +1,25 @@
-import { fetchAllPosts } from "../api";
+
 import React, { useState, useEffect } from 'react'
 
-const Posts = () => {
-    const [posts,setPosts] = useState()
-
-    useEffect(() => {
-        const fetchPosts = fetchAllPosts()
-        setPosts(fetchPosts)
-    }, [])
+const Posts = ({posts}) => {
+   
     console.log("Posts",posts)
-    return (
-        <div></div>
-    )
+    {posts.map((post, index) => {
+        return (
+            <div onClick={(event) =>{
+            setPosts(post)  
+            }}>
+             {post}
+                
+            </div>
+        )
+    
+    
+    })
+}
+  
 }
 export default Posts
+
+
+// we need to map over posts
