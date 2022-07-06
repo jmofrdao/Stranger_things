@@ -1,1 +1,1 @@
-// the user should be able to click a button. After the button is clicked, the page should no longer render any posts or information. 
+import './Logout.css'
