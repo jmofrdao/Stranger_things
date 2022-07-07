@@ -16,7 +16,7 @@ export const fetchAllPosts = async () => {
 
 export const registerPerson = async (registeredUsername, registeredPassword) => {
    
-     const response = await fetch (`${APIURL}/users/login`,
+     const response = await fetch (`${APIURL}/users/register`,
      {
          method:"POST",
          headers: { 'Content-Type': 'application/json'
@@ -31,35 +31,49 @@ export const registerPerson = async (registeredUsername, registeredPassword) => 
     })
     const result = await response.json()
     const token = result.data.token
-    localStorage.setItem("token", token)
     return token
 
-
 }
 
-export const fetchUsers = async () => {
-    try {
-        const response = await fetch (`${APIURL}/users/me`,
-     {
+export const loginUser = async (username, password) => {
+    try{
+        const response = await fetch (`${APIURL}/users/login`,
+        {
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    username: username,
+                    password: password
+                }
+            })
+        }
+        )
+        const result = await response.json()
+        const token = result.data.token
+        return token
 
-         headers: { 'Content-Type': 'application/json',
-                        'Authorization': 'Bearer Token String'
-         },
-     
-    }) 
-    console.log(response,"response")
-} catch {
-
+    } catch (error){
+        console.error('Trouble fetching users', error)
+    }
 }
+
+export const getProfile = async(token) => {
+    const response = await fetch (`${APIURL}/users/me`,
+    {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    }
+    )
+    const result = await response.json()
+    const data = result.data
+    console.log(data, "this is the data")
+    return data
 }
-// export const deletePosts = async () => {
-//  const response = await fetch(`${APIURL}/posts`);
-// }
-
-// export const editPosts = async () => {
-
-// }
-
 
 
 

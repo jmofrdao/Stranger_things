@@ -1,27 +1,40 @@
 import './Profile.css'
 
 import React, { useEffect } from "react";
-import { fetchUsers } from "../api";
+import { getProfile } from "../api";
 
-const Profile = ({ users, setUsers }) => {
-  async function getAllUsers() {
-    const getUsers = await fetchUsers();
-    setUsers(getUsers);
-  }
+const Profile = ({ myInfo, setMyInfo }) => {
+  let token = "";
   useEffect(() => {
-    getAllUsers();
+    token = localStorage.getItem("token")
+    async function getMyInfo(){
+      const myNewInfo = await getProfile(token)
+      setMyInfo(myNewInfo)
+    }
+    getMyInfo()
   }, []);
-console.log("users", users)
-  const getUsers = users.map((user, index)=> {
-      return (
-          <div>Hello World</div>
-      )
-  })
-  return (
+  
+  const myMessages = myInfo.messages.map ((message, index) => {
+    return (
       <div>
-        {getUsers}
-      </div>
+    {message} 
+    </div>
+    )
+  })
+  
+  return (
+    <div>
+      <h1>Welcome {myInfo.username}</h1>
+      <h2>Messages to Me:</h2>
+      <p> {myMessages} </p>
+
+
+
+
+
+    </div>
   )
 
+ 
 };
 export default Profile;

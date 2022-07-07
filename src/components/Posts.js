@@ -13,7 +13,7 @@ const Posts = ({ posts, setPosts }) => {
   console.log("Posts", posts);
   const getPosts = posts.map((post, index)=> {
       return (
-          <div className='descriptionBox' key={posts.index}>
+          <div className='descriptionBox' key={`mypostsmap: ${index}`}>
           <h1 className='title'>{post.title}</h1>
           <p className='descriptions'>{post.description}</p>
           <p className='descriptions'>{post.author.username}</p>
