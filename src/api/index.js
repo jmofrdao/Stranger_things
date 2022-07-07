@@ -14,7 +14,7 @@ export const fetchAllPosts = async () => {
     }
 }
 
-export const registerPerson = async () => {
+export const registerPerson = async (registeredUsername, registeredPassword) => {
    
      const response = await fetch (`${APIURL}/users/login`,
      {
@@ -32,9 +32,33 @@ export const registerPerson = async () => {
     const result = await response.json()
     const token = result.data.token
     localStorage.setItem("token", token)
+    return token
 
 
 }
+
+export const fetchUsers = async () => {
+    try {
+        const response = await fetch (`${APIURL}/users/me`,
+     {
+
+         headers: { 'Content-Type': 'application/json',
+                        'Authorization': 'Bearer Token String'
+         },
+     
+    }) 
+    console.log(response,"response")
+} catch {
+
+}
+}
+// export const deletePosts = async () => {
+//  const response = await fetch(`${APIURL}/posts`);
+// }
+
+// export const editPosts = async () => {
+
+// }
 
 
 

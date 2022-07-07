@@ -1,11 +1,14 @@
 import './Register.css'
 import { registerPerson } from "../api";
+import React, {useState} from 'react'
 
 async function handleSubmit(event) {
     event.preventDefault()
 }
 
 function Register () {
+    const [username,setuserName] = useState()
+    const [password,setPassword] = useState()
     return (
         <div id = "registerBox">
        <form onSubmit={handleSubmit}>

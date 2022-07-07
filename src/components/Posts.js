@@ -11,19 +11,24 @@ const Posts = ({ posts, setPosts }) => {
     getAllPosts();
   }, []);
   console.log("Posts", posts);
-  {
-    posts.map((post, index) => {
+  const getPosts = posts.map((post, index)=> {
       return (
-        <div
-          onClick={(event) => {
-            setPosts(post);
-          }}
-        >
-          {post}
-        </div>
-      );
-    });
-  }
+          <div className='descriptionBox' key={posts.index}>
+          <h1 className='title'>{post.title}</h1>
+          <p className='descriptions'>{post.description}</p>
+          <p className='descriptions'>{post.author.username}</p>
+          <p className='descriptions'>{post.price}</p>
+          <p className='descriptions'>{post.location}</p>
+          <p className='descriptions'>{post.willDeliver}</p>
+          </div>
+      )
+  })
+  return (
+      <div>
+        {getPosts}
+      </div>
+  )
+
 };
 export default Posts;
 

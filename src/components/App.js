@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Header, Login, Posts} from "./index.js";
+import { Header, Login, Posts, Profile} from "./index.js";
 import { fetchAllPosts } from "../api";
 import './App.css'
+import { Routes, Route, Link } from "react-router-dom";
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [users,setUsers] = useState([])
 //   async function getAllPosts() {
 //     const fetchPosts = await fetchAllPosts();
 //     setPosts(fetchPosts);
@@ -14,11 +16,15 @@ const App = () => {
 
   return (
     <div>
+
   <Header />
-  <>
-  <Login />
-  </>
- <Posts posts={posts} setPosts={setPosts} />
+  <div>
+<Routes>
+  {/* <Login /> */}
+  <Route path='/Profile' element={<Profile users={users} setUsers={setUsers}/>}/>
+  <Route path='/Posts'element={<Posts posts={posts} setPosts={setPosts}/>}/>
+  </Routes>
+  </div>
     </div>
   )
 }
