@@ -15,22 +15,32 @@ export const fetchAllPosts = async () => {
 }
 
 export const registerPerson = async () => {
-    const response = await
-    fetch(`${APIURL}/users/login`,
-    {
-     method: "POST",
-     headers: {
-         'Content-Type': 'application/json'
-     },
-     body: JSON.stringify({
-         user: {
-             username: registerUsername,
-             password: registerPassword
-         }
-     })
-    }
-    )
+   
+     const response = await fetch (`${APIURL}/users/login`,
+     {
+         method:"POST",
+         headers: { 'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({
+             user: {
+                 username: registeredUsername,
+                 password:registeredPassword
+             }
+         })
+     
+    })
+    const result = await response.json()
+    const token = result.data.token
+    localStorage.setItem("token", token)
+
+
 }
+
+
+
+
+
+  
 //fetch my post function
 
 //we need a POST function for when someone creates a post

@@ -1,7 +1,11 @@
 import './Register.css'
+import { registerPerson } from "../api";
 
+async function handleSubmit(event) {
+    event.preventDefault()
+}
 
-function register () {
+function Register () {
     return (
         <div id = "registerBox">
        <form onSubmit={handleSubmit}>
@@ -12,7 +16,6 @@ function register () {
             <input id="password" placeholder="Create password"></input>
             <input id="password" placeholder="Retype password"></input>
             <button type="submit">Create account</button>
-            
         </form>
         </div>
 
@@ -24,3 +27,5 @@ function register () {
 
 
 }
+
+export default Register
