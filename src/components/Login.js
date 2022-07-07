@@ -2,11 +2,13 @@ import './Login.css'
 import { NavLink } from 'react-router-dom'
 import React from "react";
 import {loginUser} from '../api'
+import { useNavigate } from 'react-router';
 
 
 
 
-function Login ({username, setuserName, password, setPassword}){
+function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
+    let navigate = useNavigate();
     const handleOnChange = (event) => {
         const input = event.target.id
         if(input === 'username'){
@@ -18,8 +20,18 @@ function Login ({username, setuserName, password, setPassword}){
     }
     
     const handleSubmit = async(event) =>{
-      const token = loginUser(username, password)
+    event.preventDefault()
+      const token = await loginUser(username, password)
+      if (token) {
+      setIsLoggedIn(true)  
       localStorage.setItem("token", token)
+      navigate('/Profile')
+      }
+    }
+
+    const registerButton = async(event) => {
+        event.preventDefault()
+        navigate('/Register')
     }
 
     return (
@@ -31,21 +43,17 @@ function Login ({username, setuserName, password, setPassword}){
                 type="text"
                 placeholder="Your Username Here"
                 value = {username}
-                onChange={(event)=>{
-                    setuserName(event.target.value)
-                }}/>
+                onChange={handleOnChange}/>
             </label>
             <label>Password
             <input id="password" 
                 type="text"
                 placeholder="Your Password Here"
                 value = {password}
-                onChange={(event)=>{
-                    setPassword(event.target.value)
-                }}/>
+                onChange={handleOnChange}/>
             </label>
             <button type = "submit">Submit</button>
-            <NavLink to= "/Register">Need to create an account? Register here.</NavLink> 
+            <button type ="submit" onClick ={registerButton}>Don't have an account? Create one here.</button>
         </form>
         </div>
     )

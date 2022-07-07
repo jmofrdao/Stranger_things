@@ -1,40 +1,43 @@
-import './Profile.css'
+import "./Profile.css";
 
 import React, { useEffect } from "react";
 import { getProfile } from "../api";
 
 const Profile = ({ myInfo, setMyInfo }) => {
-  let token = "";
+  
   useEffect(() => {
-    token = localStorage.getItem("token")
-    async function getMyInfo(){
-      const myNewInfo = await getProfile(token)
-      setMyInfo(myNewInfo)
+    let token = localStorage.getItem("token");
+    console.log(token)
+    if (token){
+      async function getMyInfo() {
+        const myNewInfo = await getProfile(token);
+        console.log(myNewInfo, "mynewinfo")
+        setMyInfo(myNewInfo);
+      }
+      getMyInfo();
     }
-    getMyInfo()
+   
   }, []);
-  
-  const myMessages = myInfo.messages.map ((message, index) => {
-    return (
-      <div>
-    {message} 
-    </div>
-    )
-  })
-  
+
+  // const myMessages = myInfo.messages?
+
   return (
     <div>
-      <h1>Welcome {myInfo.username}</h1>
+      {myInfo && myInfo.username ? (
+        <h1>Welcome {myInfo.username}</h1>
+      ) : (
+        <h1>Welcome</h1>
+      )}
       <h2>Messages to Me:</h2>
-      <p> {myMessages} </p>
-
-
-
-
-
+      {myInfo && myInfo.messages && myInfo.messages.length ? (
+        myInfo.messages.map((message, index) => {
+          return <div key={`mymessagesmap: ${index}`}>{message}</div>
+        })
+      ) : (
+        <div>you have no messages at this time</div>
+      )}
+      
     </div>
-  )
-
- 
+  );
 };
 export default Profile;

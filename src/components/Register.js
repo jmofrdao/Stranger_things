@@ -4,11 +4,14 @@ import React, {useState} from 'react'
 
 
 
-function Register ({username, password, setuserName, setPassword}) {
+function Register ({username, password, setuserName, setPassword, setIsLoggedIn}) {
     async function handleSubmit(event) {
         event.preventDefault()
         const token = await registerPerson(username, password)
-        localStorage.setItem("token", token)
+        if (token) {
+            setIsLoggedIn(true)  
+            localStorage.setItem("token", token)
+            }
     } 
     return (
         <div id = "registerBox">
