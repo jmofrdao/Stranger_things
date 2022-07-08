@@ -92,7 +92,24 @@ export const createNewPost = async(token, addPost) => {
      return newPost
 }
 
-//message 
+export const createMessage =  async (token, postID, typedMessage) => {
+    const response = await fetch (`${APIURL}/posts/${postID}/messages`,
+    {
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            message:{
+                content: `${typedMessage}`
+            }          
+        })   
+
+    })
+    const result = await response.json()
+    return result
+}
 
 //modify
 

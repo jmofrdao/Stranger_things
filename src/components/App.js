@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Header, Login, Posts, Profile, Register, AddPosts } from "./index.js";
+import {
+  Header,
+  Login,
+  Posts,
+  Profile,
+  Register,
+  AddPosts,
+  NewMessage,
+} from "./index.js";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 const App = () => {
@@ -8,8 +16,9 @@ const App = () => {
   const [username, setuserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   //add a check to see if there is a token in local storage, if so setIsLoggedIn(true)
-console.log(isLoggedIn)
+  console.log(isLoggedIn);
   return (
     <div>
       <Header

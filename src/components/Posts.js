@@ -4,9 +4,9 @@ import { fetchAllPosts } from "../api";
 import { NavLink } from "react-router-dom";
 
 
-const Posts = ({ posts, setPosts, isLoggedIn }) => {
+const Posts = ({ posts, setPosts, isLoggedIn, user, setUser }) => {
   // const [myPost,setMyPost] = useState([])
-
+ 
   
   async function getAllPosts() {
     const fetchPosts = await fetchAllPosts();
@@ -17,6 +17,7 @@ const Posts = ({ posts, setPosts, isLoggedIn }) => {
   }, []);
   console.log("Posts", posts);
   const getPosts = posts.map((post, index)=> {
+  
       return (
         
           <div className='descriptionBox' key={`mypostsmap: ${index}`}>

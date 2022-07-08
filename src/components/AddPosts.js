@@ -22,10 +22,12 @@ const AddPosts = ({username, setPosts, posts}) => {
             price: price,
             location: location,
             willDeliver: willDeliver,
+            
         }
         const freshPost = await createNewPost(token, newPost)
         setPosts([...posts, freshPost])
         navigate('/Posts')
+        
     }
         return (
         <div>
