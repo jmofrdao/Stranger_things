@@ -71,8 +71,27 @@ export const getProfile = async(token) => {
     )
     const result = await response.json()
     const data = result.data
-    console.log(data, "this is the data")
     return data
+}
+
+export const createNewPost = async(token, addPost) => {
+    const response = await fetch (`${APIURL}/posts`,
+    {
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            user: {
+                addPost
+            }
+        })
+         
+    })
+    result = await response.json()
+        return result
+        console.log(result, 'this is the result')
 }
 
 

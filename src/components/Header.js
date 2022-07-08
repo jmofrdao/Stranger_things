@@ -25,6 +25,7 @@ let navigate = useNavigate();
         </>
       ) : (
         <>
+        <NavLink to='/Login'>Login</NavLink>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/Posts">Posts</NavLink>
         </>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Header, Login, Posts, Profile, Register } from "./index.js";
+import { Header, Login, Posts, Profile, Register, AddPosts } from "./index.js";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 const App = () => {
@@ -8,10 +8,15 @@ const App = () => {
   const [username, setuserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//add a check to see if there is a token in local storage, if so setIsLoggedIn(true)
+  //add a check to see if there is a token in local storage, if so setIsLoggedIn(true)
   return (
     <div>
-      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setuserName={setuserName} setPassword={setPassword}/>
+      <Header
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setuserName={setuserName}
+        setPassword={setPassword}
+      />
       <div>
         {isLoggedIn ? (
           <Routes>
@@ -24,18 +29,26 @@ const App = () => {
               path="/Posts"
               element={<Posts posts={posts} setPosts={setPosts} />}
             />
+            <Route
+              path="/AddPosts"
+              element={<AddPosts username={username} />}
+            />
           </Routes>
         ) : (
           <div>
-            
-            <Login
-              username={username}
-              setuserName={setuserName}
-              password={password}
-              setPassword={setPassword}
-              setIsLoggedIn={setIsLoggedIn}
-            />
             <Routes>
+              <Route
+                path="/Login"
+                element={
+                  <Login
+                    username={username}
+                    setuserName={setuserName}
+                    password={password}
+                    setPassword={setPassword}
+                    setIsLoggedIn={setIsLoggedIn}
+                  />
+                }
+              />
               <Route
                 path="/Posts"
                 element={<Posts posts={posts} setPosts={setPosts} />}
@@ -57,12 +70,6 @@ const App = () => {
           </div>
         )}
       </div>
-      <Routes>
-
-
-
-        
-      </Routes>
     </div>
   );
 };
