@@ -22,11 +22,11 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
     const handleSubmit = async(event) =>{
     event.preventDefault()
       const token = await loginUser(username, password)
-      if (token) {
+     
       setIsLoggedIn(true)  
       localStorage.setItem("token", token)
       navigate('/Profile')
-      }
+      
     }
 
     const registerButton = async(event) => {

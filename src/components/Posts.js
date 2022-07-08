@@ -2,9 +2,9 @@ import "./Posts.css";
 import React, { useEffect } from "react";
 import { fetchAllPosts } from "../api";
 import { NavLink } from "react-router-dom";
-import {AddPosts} from './index.js'
 
-const Posts = ({ posts, setPosts }) => {
+
+const Posts = ({ posts, setPosts, isLoggedIn }) => {
   // const [myPost,setMyPost] = useState([])
 
   
@@ -26,23 +26,30 @@ const Posts = ({ posts, setPosts }) => {
           <p className='descriptions'>{post.price}</p>
           <p className='descriptions'>{post.location}</p>
           <p className='descriptions'>{post.willDeliver}</p>
-          
-          </div>
-          
+
+  
+          </div>  
       )
   })
+  
   return (
     <>
+    { localStorage.getItem("token") ? 
     <div>
     <NavLink to='/AddPosts'>Add New Post</NavLink>
-
-    </div>
-      <div>
-        {getPosts}
-        </div>
-        </>
+    </div> 
+    : null
+    }
+    <div>
+    {getPosts}
+    </div> 
+    </>
   )
 };
 export default Posts;
 
-// we need to map over posts
+
+// if it is your post, you should only see delete or edit
+//if it is not yours, you should only see message
+//if post Id matches post render delete edit buttons otherwise render message button
+

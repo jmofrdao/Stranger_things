@@ -9,6 +9,7 @@ const App = () => {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   //add a check to see if there is a token in local storage, if so setIsLoggedIn(true)
+console.log(isLoggedIn)
   return (
     <div>
       <Header
@@ -31,7 +32,13 @@ const App = () => {
             />
             <Route
               path="/AddPosts"
-              element={<AddPosts username={username} />}
+              element={
+                <AddPosts
+                  username={username}
+                  setPosts={setPosts}
+                  posts={posts}
+                />
+              }
             />
           </Routes>
         ) : (
