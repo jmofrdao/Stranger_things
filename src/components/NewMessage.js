@@ -10,10 +10,11 @@ const [typedMessage, setTypedMessage] = useState('')
 
 const handleSubmit = async (event) => {
     event.preventDefault()
+    const postID = author._id
     const token = localStorage.getItem('token')
-    const myMessage = await createMessage(token, typedMessage)
+    const myMessage = await createMessage(token, typedMessage, postID)
     console.log(myMessage)
-    setMyInfo([...myInfo, myMessage])
+    
 }
 
 return  (

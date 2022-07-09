@@ -23,11 +23,11 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
     
     event.preventDefault()
       const token = await loginUser(username, password)
-   if (token && token.length){
-      setIsLoggedIn(true)  
+//    if (token && token.length){
+      token ? setIsLoggedIn(true) : false 
       localStorage.setItem("token", token)
       navigate('/Profile')
-    }
+    // 
     }
 
     const registerButton = async(event) => {

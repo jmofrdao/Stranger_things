@@ -8,7 +8,7 @@ import {
   AddPosts,
 } from "./index.js";
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [myInfo, setMyInfo] = useState([]);
@@ -16,8 +16,9 @@ const App = () => {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
+  
   //add a check to see if there is a token in local storage, if so setIsLoggedIn(true)
-  console.log(isLoggedIn);
+  
   return (
     <div>
       <Header
@@ -36,7 +37,7 @@ const App = () => {
 
             <Route
               path="/Posts"
-              element={<Posts posts={posts} setPosts={setPosts} myInfo={myInfo} setMyInfo={setMyInfo} />}
+              element={<Posts posts={posts} setPosts={setPosts} myInfo={myInfo} setMyInfo={setMyInfo} isLoggedIn={isLoggedIn} username ={username}/>}
             />
             <Route
               path="/AddPosts"
