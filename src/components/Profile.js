@@ -7,7 +7,6 @@ const Profile = ({ myInfo, setMyInfo }) => {
   
   useEffect(() => {
     let token = localStorage.getItem("token");
-    console.log(token)
     if (token){
       async function getMyInfo() {
         const myNewInfo = await getProfile(token);

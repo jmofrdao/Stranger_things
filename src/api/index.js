@@ -5,7 +5,6 @@ export const fetchAllPosts = async () => {
     try {
         const response = await fetch(`${APIURL}/posts`);
         const result = await response.json();
-        console.log("API index", result)
         if(result.error) throw result.error
         return result.data.posts
         
@@ -111,10 +110,18 @@ export const createMessage =  async (token, postID, typedMessage) => {
     return result
 }
 
-//modify
+//modify ajax function here
 
-//deletepost
-
-
-
-
+export const removePost = async (token, postID) => {
+    const response = await fetch (`${APIURL}/posts/${postID}`,
+    { 
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    })
+const result = await response.json()
+console.log(result)
+return result
+}

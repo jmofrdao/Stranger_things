@@ -14,23 +14,23 @@ let navigate = useNavigate();
            
   }
     return (
-    <div className="NavBar">
-      <h1>Stranger's Things</h1>
+    <header className="NavBar">
+      <h1 id="title">Stranger's Things</h1>
       {isLoggedIn ? (
         <>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/Posts">Posts</NavLink>
-          <NavLink to="/Profile">Profile</NavLink>
-          <button onClick={logout}>Logout</button>
+          <NavLink className="Links" to="/">Home</NavLink>
+          <NavLink className="Links"to="/Posts">Posts</NavLink>
+          <NavLink className="Links"to="/Profile">Profile</NavLink>
+          <button id="logout" onClick={logout}>Logout</button>
         </>
       ) : (
         <>
-        <NavLink to='/Login'>Login</NavLink>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/Posts">Posts</NavLink>
+        <NavLink className="Links"to='/Login'>Login</NavLink>
+          <NavLink className="Links"to="/">Home</NavLink>
+          <NavLink className="Links"to="/Posts">Posts</NavLink>
         </>
       )}
-    </div>
+    </header>
   );
 }
 export default Header;

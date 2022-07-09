@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Padauk&display=swap');
+
+#logInBox {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+h1 { 
+    font-family: 'Padauk', sans-serif;
+    text-align: center;
+    color: #2C365E;
+}
+
+label {
+    padding-right: 10px;
+    font-family: 'Padauk', sans-serif; 
+    color: #2C365E;
+    
+}
+
+input:hover {
+    background-color: #c9d1d1;
+
+}
+ 
+input {
+    padding-left: 10px;
+    font-family: 'Padauk', sans-serif; 
+    margin-left: 5px;
+}
+
+button {
+    background-color: #484D6D;
+    margin-right: 10px;
+    padding: 5px;
+    color: #c9d1d1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Padauk&display=swap');
+
+
+.NavBar {
+    display:flex;
+    background-color:#2B193D;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    
+}
+
+#logout {
+    background-color: #C5979D;
+    color: #c9d1d1;
+   padding: 5px;
+   padding-left: 15px;
+   padding-right: 15px;
+   font-size: x-large;
+   font-family: 'Amatic SC', cursive;
+}
+ #logout:hover {
+     background-color: #484D6D;
+ }
+
+ #title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 60px;
+    color: #4B8F8C;
+ }
+
+ .Links {
+     color: #C5979D;
+     font-size: 30px;
+     font-family: 'Amatic SC', cursive;
+     text-decoration: none;
+ }
+
+.Links:hover {
+    text-decoration: underline
+}
+
+
+
+
+

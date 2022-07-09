@@ -39,7 +39,7 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
        <div id = "logInBox">
        <form onSubmit={handleSubmit}>
             <h1>Log into your Stranger's Things account</h1>
-            <label>User Name
+            <label id="username">User Name
             <input id="username" 
                 type="text"
                 placeholder="Your Username Here"
@@ -53,8 +53,8 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
                 value = {password}
                 onChange={handleOnChange}/>
             </label>
-            <button type = "submit">Submit</button>
-            <button type ="submit" onClick ={registerButton}>Don't have an account? Create one here.</button>
+            <button id="submit" type = "submit">Submit</button>
+            <button id="register" type ="submit" onClick ={registerButton}>Don't have an account? Create one here.</button>
         </form>
         </div>
     )

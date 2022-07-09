@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { fetchAllPosts } from "../api";
 import { NavLink } from "react-router-dom";
 import NewMessage from "./NewMessage";
-import DeletePosts from "./"
+import DeletePosts from "./DeletePosts"
 
 
 const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => {
@@ -18,7 +18,6 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => 
   }, []);
   console.log("Posts", posts);
   const getPosts = posts.map((post, index)=> {
-  console.log(isLoggedIn)
       return (
         
           <div className='descriptionBox' key={`mypostsmap: ${index}`}>
@@ -36,8 +35,8 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => 
           }
           { post.author.username === username ?
           <>
-          <button>Delete</button>
-          <button>Edit</button>
+          <DeletePosts setPosts={setPosts} posts={posts} post={post} />
+          <button>Edit will go here</button>
           </>
           : null
           }
