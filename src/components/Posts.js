@@ -2,12 +2,12 @@ import "./Posts.css";
 import React, { useEffect } from "react";
 import { fetchAllPosts } from "../api";
 import { NavLink } from "react-router-dom";
+import NewMessage from "./NewMessage";
 
 
-const Posts = ({ posts, setPosts, isLoggedIn, user, setUser }) => {
-  // const [myPost,setMyPost] = useState([])
- 
+const Posts = ({ posts, setPosts, isLoggedIn, user, setUser, myInfo, setMyInfo }) => {
   
+ 
   async function getAllPosts() {
     const fetchPosts = await fetchAllPosts();
     setPosts(fetchPosts);
@@ -27,8 +27,10 @@ const Posts = ({ posts, setPosts, isLoggedIn, user, setUser }) => {
           <p className='descriptions'>{post.price}</p>
           <p className='descriptions'>{post.location}</p>
           <p className='descriptions'>{post.willDeliver}</p>
-
-  
+          <NewMessage myInfo={myInfo} setMyInfo={setMyInfo}/>
+          <button>Delete</button>
+          
+          
           </div>  
       )
   })

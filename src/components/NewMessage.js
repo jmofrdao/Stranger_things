@@ -1,19 +1,30 @@
 import './NewMessage.css'
-import React from 'react'
+import React, {useState} from 'react'
+import { createMessage } from '../api'
 
 
 
-function newMessage (){
+
+function NewMessage ({myInfo, setMyInfo}){
+const [typedMessage, setTypedMessage] = useState('')
+
+const handleSubmit = async (event) => {
+    event.preventDefault()
+    const token = localStorage.getItem('token')
+    const myMessage = await createMessage(token, typedMessage)
+    console.log(myMessage)
+    setMyInfo([...myInfo, myMessage])
+}
+
 return  (
     <aside>
-        <h1>Message User about this Post</h1>
-        <form>
-        <input type='text' message='message'  placeholder='Write message here'/>
-        <button>SEND MESSAGE</button>
+        <form onSubmit={handleSubmit}>
+        <input onChange={(event)=>{setTypedMessage(event.target.value)}}type='text' value = {typedMessage} required/>
+        <button type='submit'>SEND MESSAGE</button>
         </form>
     </aside>
 
 )
 }
 
-export default newMessage
+export default NewMessage

@@ -6,7 +6,6 @@ import {
   Profile,
   Register,
   AddPosts,
-  NewMessage,
 } from "./index.js";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
@@ -37,7 +36,7 @@ const App = () => {
 
             <Route
               path="/Posts"
-              element={<Posts posts={posts} setPosts={setPosts} />}
+              element={<Posts posts={posts} setPosts={setPosts} myInfo={myInfo} setMyInfo={setMyInfo} />}
             />
             <Route
               path="/AddPosts"
