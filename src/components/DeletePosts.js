@@ -5,21 +5,25 @@ import { removePost, fetchAllPosts } from '../api'
 
 
 
-function DeletePosts (posts, setPosts, post){
-    const handleOnClick = async (event) => { 
+
+
+function DeletePosts (post,  _id, posts, setPosts){
+
+    const handleOnSubmit = async (event) => { 
         event.preventDefault()
         const token = localStorage.getItem('token')
         const postID = post._id
         await removePost(token, postID)
-        posts = await fetchAllPosts()
         setPosts(posts)
+        
+    
     }   
 
 
 return (  
- <div onClick={handleOnClick} >   
-<button>Delete</button>
-</div> 
+ <form onClick={handleOnSubmit} >   
+<button type="submit">Delete</button>
+</form> 
 )
 }
 

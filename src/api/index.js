@@ -113,6 +113,7 @@ export const createMessage =  async (token, postID, typedMessage) => {
 //modify ajax function here
 
 export const removePost = async (token, postID) => {
+    // console.log(postID, "this is the id")
     const response = await fetch (`${APIURL}/posts/${postID}`,
     { 
         method: "DELETE",

@@ -17,10 +17,10 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => 
     getAllPosts();
   }, []);
   console.log("Posts", posts);
-  const getPosts = posts.map((post, index)=> {
+  const getPosts = posts.map((post)=> {
       return (
         
-          <div className='descriptionBox' key={`mypostsmap: ${index}`}>
+          <div className='descriptionBox' key={post._id}>
           <h1 className='title'>{post.title}</h1>
           <p className='descriptions'>{post.description}</p>
           <p className='descriptions'>{post.author.username}</p>
@@ -35,7 +35,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => 
           }
           { post.author.username === username ?
           <>
-          <DeletePosts setPosts={setPosts} posts={posts} post={post} />
+          <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
           <button>Edit will go here</button>
           </>
           : null
