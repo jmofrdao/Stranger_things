@@ -1,1 +1,0 @@
-import './FeaturedPost.css'

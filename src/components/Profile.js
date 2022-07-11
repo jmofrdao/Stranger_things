@@ -25,15 +25,36 @@ const Profile = ({ myInfo, setMyInfo }) => {
       ) : (
         <h1 className="introTitle">Welcome</h1>
       )}
-      <h2 id="messagesTitle">Here are your Messages:</h2>
+      <h2 id="messagesTitle">Messages to You:</h2>
       {myInfo && myInfo.messages && myInfo.messages.length ? (
         myInfo.messages.map((message, index) => {
           return (
-            <div id="myMessages" key={`mymessagesmap: ${index}`}>
-              <h3>From: {message.fromUser.username}</h3>
-              <h3>In Response to: {message.post.title}</h3>
-              <p>Message: {message.content}</p>
-              
+            <div>
+              {message.fromUser.username !== myInfo.username ? (
+                <div id="myMessages" key={`mymessagesmap: ${index}`}>
+                  <h3>From: {message.fromUser.username}</h3>
+                  <h3>In Response to: {message.post.title}</h3>
+                  <p>Message: {message.content}</p>
+                </div>
+              ) : null}
+            </div>
+          );
+        })
+      ) : (
+        <div id="noMessages">You have no messages at this time.</div>
+      )}
+      <h2 id="messagesTitle">Messages from You:</h2>
+      {myInfo && myInfo.messages && myInfo.messages.length ? (
+        myInfo.messages.map((message, index) => {
+          return (
+            <div>
+              {message.fromUser.username === myInfo.username ? (
+                <div id="myMessages" key={`mymessagesmap: ${index}`}>
+                  <h3>From: me</h3>
+                  <h3>In Response to: {message.post.title}</h3>
+                  <p>Message: {message.content}</p>
+                </div>
+              ) : null}
             </div>
           );
         })

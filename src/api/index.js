@@ -110,7 +110,6 @@ export const createMessage =  async (token, postID, typedMessage) => {
     return result
 }
 
-//modify ajax function here
 
 export const removePost = async (token, postID) => {
     // console.log(postID, "this is the id")
@@ -125,4 +124,20 @@ export const removePost = async (token, postID) => {
 const result = await response.json()
 console.log(result)
 return result
+}
+
+export const modifyPost = async (token, post, postID) => {
+    const response = await fetch (`${APIURL}/posts/${postID}`,
+    {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            post:post         
+        }) 
+    })
+    const result = await response.json()
+    return result
 }

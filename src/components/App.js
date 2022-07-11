@@ -16,8 +16,12 @@ const App = () => {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
-  
-  //add a check to see if there is a token in local storage, if so setIsLoggedIn(true)
+  useEffect (()=>{
+  if(localStorage.getItem("token")){
+    setIsLoggedIn(true)
+  }
+  },[]) 
+ 
   
   return (
     <div>
