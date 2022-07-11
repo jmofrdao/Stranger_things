@@ -13,11 +13,11 @@
 
 #logout {
     background-color: #C5979D;
-    color: #c9d1d1;
+    color: #2B193D;
    padding: 5px;
    padding-left: 15px;
    padding-right: 15px;
-   font-size: x-large;
+   font-size: 40px;
    font-family: 'Amatic SC', cursive;
 }
  #logout:hover {

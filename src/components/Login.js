@@ -39,7 +39,7 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
        <div id = "logInBox">
        <form onSubmit={handleSubmit}>
             <h1>Log into your Stranger's Things account</h1>
-            <label>User Name
+            <label>Username
             <input id="username" 
                 type="text"
                 placeholder="Your Username Here"

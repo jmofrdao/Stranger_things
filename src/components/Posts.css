@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Padauk&display=swap');
+
+.postsdescriptionBox {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    border: solid 3px #2B193D;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background-color: #c9d1d1;
+}
+
+.title {
+    font-family: 'Padauk', sans-serif;
+    font-size: 35px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 5px;
+    color: #2C365E;
+    
+    
+}
+
+.descriptions {
+    font-family: 'Padauk', sans-serif;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 20px;
+}

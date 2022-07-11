@@ -20,13 +20,16 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => 
   const getPosts = posts.map((post)=> {
       return (
         
-          <div className='descriptionBox' key={post._id}>
-          <h1 className='title'>{post.title}</h1>
-          <p className='descriptions'>{post.description}</p>
-          <p className='descriptions'>{post.author.username}</p>
-          <p className='descriptions'>{post.price}</p>
-          <p className='descriptions'>{post.location}</p>
-          <p className='descriptions'>{post.willDeliver}</p>
+          <div className='postsdescriptionBox' key={post._id}>
+          <h5 className='title'>{post.title}</h5>
+          <p className='descriptions'>Description: {post.description}</p>
+          <p className='descriptions'>User: {post.author.username}</p>
+          <p className='descriptions'>Price: {post.price}</p>
+          <p className='descriptions'>Location: {post.location}</p>
+          { post.willDeliver ?
+          <p className='descriptions'>Delivery: Yes</p>
+            :null
+          }
         { isLoggedIn ?
           <>
           { post.author.username !== username ?

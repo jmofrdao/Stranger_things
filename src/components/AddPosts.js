@@ -30,29 +30,29 @@ const AddPosts = ({username, setPosts, posts}) => {
         
     }
         return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
+        <div id="newPostBox">
+            <form id="newPost" onSubmit={handleSubmit}>
+                <label className="postTitles">
                     Title:
                 </label>
                 <input onChange={(event)=>{setTitle(event.target.value)}}type='text' title="title" value = {title} required/>
-                <label>
+                <label className="postTitles">
                     Description:
                 </label>
-                <input onChange={(event)=>{setDescription(event.target.value)}}type='text' description='description' value = {description} required/>
-                <label>
+                <input id="descriptionID" onChange={(event)=>{setDescription(event.target.value)}}  type='text' description='description' value = {description} required/>
+                <label className="postTitles">
                     Location:
                 </label>
-                <input onChange={(event)=>{setLocation(event.target.value)}}type="text" location='location' value = {location}/>
-                <label>
+                <input className="postTitles" onChange={(event)=>{setLocation(event.target.value)}}type="text" location='location' value = {location}/>
+                <label className="postTitles">
                 Price:
                 </label>
-                <input onChange={(event)=>{setPrice(event.target.value)}}type='text' price='price' value = {price} required/>
-                <div> 
-                <input onChange={(event)=>{setWillDeliver(event.target.value)}}type='checkbox' id='delivery' name='delivery' value={willDeliver}/>
+                <input className="postTitles" onChange={(event)=>{setPrice(event.target.value)}}type='text' price='price' value = {price} required/>
+                <div className="postTitles" > 
+                <input id="checkbox" className="postTitles" onChange={(event)=>{setWillDeliver(event.target.value)}}type='checkbox'  name='delivery' value={willDeliver}/>
                 Will Deliver
                 </div> 
-                <button type="submit">Submit Post</button>
+                <button className="submitPost" type="submit">Submit Post</button>
             </form>
         </div>
     )

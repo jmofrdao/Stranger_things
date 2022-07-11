@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Padauk&display=swap');
+
+#messagesBox {
+    background-color: #4B8F8C;
+    border: solid 3px #2B193D;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.introTitle {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    background-color: antiquewhite;
+    border: solid 3px #2B193D;
+    width: 600px;
+    align-self: center;
+    padding: 10px;
+}
+
+#messagesTitle {
+    font-family: 'Padauk', sans-serif;
+    text-align: flex-start;
+    color: #2C365E;
+    font-size: 35px;
+    padding: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 300px;
+    align-self: center;
+    align-items: center;
+}
+
+#noMessages {
+    font-family: 'Padauk', sans-serif; 
+    background-color: #c9d1d1;
+    padding: 30px;
+    font-size: 25px;
+    border: solid 3px #2B193D;
+}
+
+#myMessages {
+    font-family: 'Padauk', sans-serif; 
+    background-color: #c9d1d1;
+    padding: 30px;
+    font-size: 25px;
+    border: solid 3px #2B193D;
+}

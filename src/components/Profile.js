@@ -21,19 +21,19 @@ const Profile = ({ myInfo, setMyInfo }) => {
   // const myMessages = myInfo.messages?
 
   return (
-    <div>
+    <div id="messagesBox">
       {myInfo && myInfo.username ? (
-        <h1>Welcome {myInfo.username}</h1>
+        <h1 className="introTitle">Welcome {myInfo.username}!</h1>
       ) : (
-        <h1>Welcome</h1>
+        <h1 className="introTitle">Welcome</h1>
       )}
-      <h2>Messages to Me:</h2>
+      <h2 id="messagesTitle">Messages to Me:</h2>
       {myInfo && myInfo.messages && myInfo.messages.length ? (
         myInfo.messages.map((message, index) => {
-          return <div key={`mymessagesmap: ${index}`}>{message}</div>
+          return <div id="myMessages" key={`mymessagesmap: ${index}`}>{message}</div>
         })
       ) : (
-        <div>you have no messages at this time</div>
+        <div id="noMessages">You have no messages at this time.</div>
       )}
       
     </div>

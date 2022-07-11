@@ -10,12 +10,14 @@ h1 {
     font-family: 'Padauk', sans-serif;
     text-align: center;
     color: #2C365E;
+    font-size: 40px;
 }
 
 label {
     padding-right: 10px;
     font-family: 'Padauk', sans-serif; 
     color: #2C365E;
+    font-size: 20px;
     
 }
 
@@ -28,6 +30,7 @@ input {
     padding-left: 10px;
     font-family: 'Padauk', sans-serif; 
     margin-left: 5px;
+    font-size: 15px;
 }
 
 button {
@@ -37,5 +40,6 @@ button {
     color: #c9d1d1;
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 15px;
 }
 
