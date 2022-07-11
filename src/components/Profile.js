@@ -4,22 +4,20 @@ import React, { useEffect } from "react";
 import { getProfile } from "../api";
 
 const Profile = ({ myInfo, setMyInfo }) => {
-  
   useEffect(() => {
     let token = localStorage.getItem("token");
-    if (token){
+    if (token) {
       async function getMyInfo() {
         const myNewInfo = await getProfile(token);
-        console.log(myNewInfo, "mynewinfo")
+        console.log(myNewInfo, "mynewinfo");
         setMyInfo(myNewInfo);
       }
       getMyInfo();
     }
-   
   }, []);
 
   // const myMessages = myInfo.messages?
-
+  console.log(myInfo, "myINfo");
   return (
     <div id="messagesBox">
       {myInfo && myInfo.username ? (
@@ -27,15 +25,21 @@ const Profile = ({ myInfo, setMyInfo }) => {
       ) : (
         <h1 className="introTitle">Welcome</h1>
       )}
-      <h2 id="messagesTitle">Messages to Me:</h2>
+      <h2 id="messagesTitle">Here are your Messages:</h2>
       {myInfo && myInfo.messages && myInfo.messages.length ? (
         myInfo.messages.map((message, index) => {
-          return <div id="myMessages" key={`mymessagesmap: ${index}`}>{message}</div>
+          return (
+            <div id="myMessages" key={`mymessagesmap: ${index}`}>
+              <h3>From: {message.fromUser.username}</h3>
+              <h3>In Response to: {message.post.title}</h3>
+              <p>Message: {message.content}</p>
+              
+            </div>
+          );
         })
       ) : (
         <div id="noMessages">You have no messages at this time.</div>
       )}
-      
     </div>
   );
 };

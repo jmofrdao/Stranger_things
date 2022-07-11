@@ -12,7 +12,7 @@ const handleSubmit = async (event) => {
     event.preventDefault()
     const postID = post.author._id
     const token = localStorage.getItem('token')
-    const myMessage = await createMessage(token, typedMessage, postID)
+    const myMessage = await createMessage(token, postID, typedMessage)
     console.log(myMessage)
     
 }
