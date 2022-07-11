@@ -88,19 +88,21 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
 
   
   return (
+    <div class="bigBox">
     <>
     { localStorage.getItem("token") ? 
-    <div>
+    <div id="addNewLink">
     <NavLink to='/AddPosts'>Add New Post</NavLink>
     
     </div> 
     : null
     }
-    <div>
+    <div id="searchBox">
     <Search posts={posts} setPosts={setPosts} post={post} setFilteredPosts={setFilteredPosts}/>
     <div>{getPosts}</div>
     </div> 
     </>
+    </div>
   )
 };
 export default Posts;

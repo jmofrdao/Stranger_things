@@ -21,16 +21,17 @@ function Search({ post, posts, setPosts, setFilteredPosts }) {
 
 }
 return (
-  <form onSubmit={handleSubmit}>
+  <form className="searching"onSubmit={handleSubmit}>
     <input
+     id="searchBar"
       type="text"
-      placeholder="Seach posts..."
+      placeholder="Search posts..."
       value={searchTerm}
       onChange={(event) => {
         setSearchTerm(event.target.value);
       }}
     ></input>
-    <button type="submit">Search</button>
+    <button id="searchButton" type="submit">SEARCH</button>
   </form>
 
 );

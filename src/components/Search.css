@@ -1,0 +1,13 @@
+ #searchBar {
+    height:25px;
+    font-size:25px;
+    width: 1000px;
+    
+}
+
+#searchButton {
+    padding: 10px;
+    margin-left: 5px;
+    height: 35px;
+}
+

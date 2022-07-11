@@ -20,7 +20,7 @@ const handleSubmit = async (event) => {
 return  (
     <aside>
         <form onSubmit={handleSubmit}>
-        <input onChange={(event)=>{setTypedMessage(event.target.value)}}type='text' value = {typedMessage} required/>
+        <input id="messageUserBox" onChange={(event)=>{setTypedMessage(event.target.value)}}type='text' value = {typedMessage} required/>
         <button type='submit'>SEND MESSAGE</button>
         </form>
     </aside>

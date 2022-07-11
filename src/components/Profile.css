@@ -5,6 +5,7 @@
     border: solid 3px #2B193D;
     display: flex;
     flex-direction: column;
+    margin: 5px;
    
 }
 
@@ -43,7 +44,8 @@
 #myMessages {
     font-family: 'Padauk', sans-serif; 
     background-color: #c9d1d1;
-    padding: 30px;
+    padding: 10px;
     font-size: 25px;
     border: solid 3px #2B193D;
+    margin: 5px;
 }

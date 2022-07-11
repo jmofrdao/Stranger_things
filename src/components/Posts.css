@@ -3,6 +3,7 @@
 .postsdescriptionBox {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     padding-top: 5px;
     padding-bottom: 15px;
     padding-left: 30px;
@@ -28,4 +29,24 @@
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 20px;
+}
+
+.bigBox {
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    
+    
+}
+
+#searchBox {
+    align-self: center;
+}
+
+#addNewLink {
+     color: #C5979D;
+     font-size: 30px;
+     font-family: 'Amatic SC', cursive;
+     text-decoration: none;
+     align-self: center;
 }
