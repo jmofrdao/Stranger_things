@@ -1,3 +1,11 @@
 #messageUserBox {
- height:200px;
+ height:40px;
+ width:400px;
+ margin-left: 5px;
+}
+
+#messageButton {
+ margin-left: 5px;
+ height: 40px;
+
 }

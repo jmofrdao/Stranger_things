@@ -26,6 +26,8 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
 //    if (token && token.length){
       token ? setIsLoggedIn(true) : false 
       localStorage.setItem("token", token)
+      localStorage.setItem("username", username )
+      setuserName(username)
       navigate('/Profile')
     // 
     }

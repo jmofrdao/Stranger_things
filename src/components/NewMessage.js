@@ -21,7 +21,7 @@ return  (
     <aside>
         <form onSubmit={handleSubmit}>
         <input id="messageUserBox" onChange={(event)=>{setTypedMessage(event.target.value)}}type='text' value = {typedMessage} required/>
-        <button type='submit'>SEND MESSAGE</button>
+        <button id="messageButton" type='submit'>SEND MESSAGE</button>
         </form>
     </aside>
 

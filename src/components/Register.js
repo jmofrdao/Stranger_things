@@ -11,6 +11,8 @@ function Register ({username, password, setuserName, setPassword, setIsLoggedIn}
         if (token) {
             setIsLoggedIn(true)  
             localStorage.setItem("token", token)
+            localStorage.setItem("username", username )
+            setuserName(username)
             }
     } 
     return (

@@ -7,6 +7,7 @@ function Header({ isLoggedIn, setIsLoggedIn, setuserName, setPassword }) {
 let navigate = useNavigate();
   const logout = ()=> {
       localStorage.removeItem("token")
+      localStorage.removeItem("username")
       setIsLoggedIn(false)
       navigate('/')
       setuserName("")

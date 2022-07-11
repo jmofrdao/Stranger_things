@@ -5,7 +5,7 @@ function Search({ post, posts, setPosts, setFilteredPosts }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   function postMatches(post, text) {
-    if (post.description.includes(text) || post.title.includes(text)) {
+    if (post.description.toLowerCase().includes(text.toLowerCase()) || post.title.toLowerCase().includes(text.toLowerCase()) || post.author.username.toLowerCase().includes(text.toLowerCase())) {
       return true;
     }
   }
