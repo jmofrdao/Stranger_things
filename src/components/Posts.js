@@ -33,7 +33,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username }) => 
         { isLoggedIn ?
           <>
           { post.author.username !== username ?
-          <NewMessage myInfo={myInfo} setMyInfo={setMyInfo}/>
+          <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
           }
           { post.author.username === username ?

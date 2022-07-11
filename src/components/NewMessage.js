@@ -5,12 +5,12 @@ import { createMessage } from '../api'
 
 
 
-function NewMessage ({myInfo, setMyInfo}){
+function NewMessage ({myInfo, setMyInfo, post, _id}){
 const [typedMessage, setTypedMessage] = useState('')
 
 const handleSubmit = async (event) => {
     event.preventDefault()
-    const postID = post.author._id
+    const postID = post._id
     const token = localStorage.getItem('token')
     const myMessage = await createMessage(token, postID, typedMessage)
     console.log(myMessage)
