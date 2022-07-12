@@ -104,7 +104,3 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
 export default Posts;
 
 
-// if it is your post, you should only see delete or edit
-//if it is not yours, you should only see message
-//if post Id matches post render delete edit buttons otherwise render message button
-

@@ -34,7 +34,6 @@ function Register ({username, password, setuserName, setPassword, setIsLoggedIn}
                 onChange={(event)=>{
                     setPassword(event.target.value)
                 }}></input>
-            {/* <input id="password" placeholder="Retype password"></input> */}
             <button type="submit">Create account</button>
         </form>
         </div>

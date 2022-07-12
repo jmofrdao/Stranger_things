@@ -86,7 +86,6 @@ export const createNewPost = async(token, addPost) => {
         })     
     })
    const result = await response.json()
-   console.log(result)
      const newPost = result.data.post
      return newPost
 }
