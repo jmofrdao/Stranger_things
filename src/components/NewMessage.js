@@ -5,7 +5,7 @@ import { createMessage } from '../api'
 
 
 
-function NewMessage ({myInfo, setMyInfo, post, _id}){
+function NewMessage ({post, _id}){
 const [typedMessage, setTypedMessage] = useState('')
 
 const handleSubmit = async (event) => {
@@ -20,11 +20,7 @@ const handleSubmit = async (event) => {
     }
     
 }
-// function sentMessage () {
-// if (myMessage) {
-//     return "Message delivered!"
-// }
-// }
+
 return  (
     <aside>
         <form onSubmit={handleSubmit}>

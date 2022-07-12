@@ -40,13 +40,13 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           <p className='descriptions'>Delivery: Yes</p>
             :null
           }
-          {post.author.username !== localStorage.getItem("username")?
+          {isLoggedIn && post.author.username !== localStorage.getItem("username")?
           <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
           }
           { localStorage.getItem("token") && post.author.username === localStorage.getItem("username") ?
           <>
-          <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
+          <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts} />
           <EditPost post={post} _id={post._id} posts={posts} setPosts={setPosts} username={post.author.username}/>
           </>
           : null
@@ -69,14 +69,14 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           <p className='descriptions'>Delivery: Yes</p>
             :null
           }
-        {  post.author.username !== localStorage.getItem("username") ?
+        { isLoggedIn &&  post.author.username !== localStorage.getItem("username") ?
           <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
         }
         
         {localStorage.getItem("token") && post.author.username === localStorage.getItem("username") ?
           <>
-          <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
+          <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts} filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts}  />
           <EditPost post={post} _id={post._id} posts={posts} setPosts={setPosts} username={post.author.username}/>
           </>
           : null

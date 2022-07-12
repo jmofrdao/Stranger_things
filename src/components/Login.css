@@ -41,5 +41,10 @@ button {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 15px;
+    
+}
+
+button:hover {
+    background-color: #C5979D;
 }
 

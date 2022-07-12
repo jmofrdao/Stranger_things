@@ -5,7 +5,7 @@ import { removePost, fetchAllPosts } from '../api'
 
 
 
-function DeletePosts ({post,  _id, posts, setPosts}) {
+function DeletePosts ({post,  _id, posts, setPosts, filteredPosts, setFilteredPosts}) {
 
     const handleOnSubmit = async (event) => { 
         event.preventDefault()
@@ -13,7 +13,17 @@ function DeletePosts ({post,  _id, posts, setPosts}) {
         const postID = post._id
         await removePost(token, postID)
         const newPost = await fetchAllPosts()
-
+        if(filteredPosts.length){
+            const fineFilteredPost = filteredPosts.filter((element)=>{
+                if(element._id === postID){
+                    return false
+                } else{
+                    return true
+                }
+            })
+            setFilteredPosts(fineFilteredPost)
+            
+        }
         setPosts(newPost)
     
     }   

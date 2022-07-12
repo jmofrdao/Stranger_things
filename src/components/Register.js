@@ -17,19 +17,19 @@ function Register ({username, password, setuserName, setPassword, setIsLoggedIn}
     } 
     return (
         <div id = "registerBox">
-       <form onSubmit={handleSubmit}>
+       <form id = "registerFlex" onSubmit={handleSubmit}>
             <h1>Register for your Stranger's Things account</h1>
-            <label>Create username:</label>
-            <input id="username" 
+            <label>Create a username:</label>
+            <input className="registerInputs" 
             placeholder="Create username here"
             value = {username}
             onChange={(event)=>{
                 setuserName(event.target.value)
             }}>
             </input>
-            <label>Password</label>
-            <input id="password" 
-            placeholder="Create password"
+            <label>Creat a Password:</label>
+            <input className="registerInputs" 
+            placeholder="Create password here"
             value = {password}
                 onChange={(event)=>{
                     setPassword(event.target.value)

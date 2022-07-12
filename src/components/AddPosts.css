@@ -9,6 +9,7 @@
     font-family: 'Padauk', sans-serif;
     color: #2C365E;
     border: solid 3px #2B193D;
+    justify-content: center;
     
 
     
@@ -42,6 +43,10 @@
 
 .submitPost:hover {
     background-color: #C5979D;
+}
+
+#checkbox {
+    align-self: center;
 }
 
 
