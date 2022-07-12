@@ -112,7 +112,7 @@ export const createMessage =  async (token, postID, typedMessage) => {
 
 
 export const removePost = async (token, postID) => {
-    // console.log(postID, "this is the id")
+    
     const response = await fetch (`${APIURL}/posts/${postID}`,
     { 
         method: "DELETE",
@@ -122,11 +122,10 @@ export const removePost = async (token, postID) => {
         },
     })
 const result = await response.json()
-console.log(result)
 return result
 }
 
-export const modifyPost = async (token, post, postID) => {
+export const modifyPost = async (token, postID, title, description, price, location, willDeliver) => {
     const response = await fetch (`${APIURL}/posts/${postID}`,
     {
         method: "PATCH",
@@ -135,7 +134,8 @@ export const modifyPost = async (token, post, postID) => {
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            post:post         
+        post: {title, description, price, location, willDeliver}
+
         }) 
     })
     const result = await response.json()

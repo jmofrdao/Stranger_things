@@ -5,10 +5,16 @@ import { NavLink } from "react-router-dom";
 import NewMessage from "./NewMessage";
 import DeletePosts from "./DeletePosts"
 import Search from "./Search"
+import EditPost from "./EditPost";
+
 
 
 const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post }) => {
  const [filteredPosts, setFilteredPosts] = useState([]) 
+ 
+
+
+
  
   async function getAllPosts() {
     const fetchPosts = await fetchAllPosts();
@@ -19,6 +25,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
   }, []);
   console.log("Posts", posts);
   let getPosts = []
+
   if (filteredPosts.length){
     getPosts = filteredPosts.map((post)=> {
       return (
@@ -40,7 +47,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           { localStorage.getItem("token") && post.author.username === localStorage.getItem("username") ?
           <>
           <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
-          <button>Edit will go here</button>
+          <EditPost post={post} _id={post._id} posts={posts} setPosts={setPosts} username={post.author.username}/>
           </>
           : null
           }
@@ -70,7 +77,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
         {localStorage.getItem("token") && post.author.username === localStorage.getItem("username") ?
           <>
           <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
-          <button>Edit will go here</button>
+          <EditPost post={post} _id={post._id} posts={posts} setPosts={setPosts} username={post.author.username}/>
           </>
           : null
           }

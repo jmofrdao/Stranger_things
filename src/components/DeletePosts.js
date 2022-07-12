@@ -20,7 +20,6 @@ function DeletePosts ({post,  _id, posts, setPosts}) {
  useEffect(()=> {
 
  }, [posts])
-console.log(setPosts, "this is setposts")
 return (  
  <form onClick={handleOnSubmit} >   
 <button type="submit">Delete</button>

@@ -9,6 +9,7 @@ import {
 } from "./index.js";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [myInfo, setMyInfo] = useState([]);

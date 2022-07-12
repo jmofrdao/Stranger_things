@@ -9,15 +9,13 @@ const Profile = ({ myInfo, setMyInfo }) => {
     if (token) {
       async function getMyInfo() {
         const myNewInfo = await getProfile(token);
-        console.log(myNewInfo, "mynewinfo");
         setMyInfo(myNewInfo);
       }
       getMyInfo();
     }
   }, []);
 
-  // const myMessages = myInfo.messages?
-  console.log(myInfo, "myINfo");
+  
   return (
     <div id="messagesBox">
       {myInfo && myInfo.username ? (

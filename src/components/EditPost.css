@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Padauk&display=swap');
+
+
+#editPost {
+    display: flex;
+    background-color: #c9d1d1;
+    flex-direction: column;
+    padding: 50px;
+    margin-top: 5px;
+    font-family: 'Padauk', sans-serif;
+    color: #2C365E;
+    border: solid 3px #2B193D;
+}

@@ -1,5 +1,4 @@
 import './Login.css'
-import { NavLink } from 'react-router-dom'
 import React from "react";
 import {loginUser} from '../api'
 import { useNavigate } from 'react-router';
@@ -23,13 +22,12 @@ function Login ({username, setuserName, password, setPassword, setIsLoggedIn}){
     
     event.preventDefault()
       const token = await loginUser(username, password)
-//    if (token && token.length){
       token ? setIsLoggedIn(true) : false 
       localStorage.setItem("token", token)
       localStorage.setItem("username", username )
       setuserName(username)
       navigate('/Profile')
-    // 
+    
     }
 
     const registerButton = async(event) => {
