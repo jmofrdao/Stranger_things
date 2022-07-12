@@ -33,7 +33,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           <p className='descriptions'>Delivery: Yes</p>
             :null
           }
-          {post.author.username !== username ?
+          {post.author.username !== localStorage.getItem("username")?
           <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
           }
@@ -62,7 +62,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           <p className='descriptions'>Delivery: Yes</p>
             :null
           }
-        {  post.author.username !== username ?
+        {  post.author.username !== localStorage.getItem("username") ?
           <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
         }
