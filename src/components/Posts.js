@@ -12,9 +12,6 @@ import EditPost from "./EditPost";
 const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post }) => {
  const [filteredPosts, setFilteredPosts] = useState([]) 
  
-
-
-
  
   async function getAllPosts() {
     const fetchPosts = await fetchAllPosts();

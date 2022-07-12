@@ -11,7 +11,16 @@ const AddPosts = ({username, setPosts, posts}) => {
     const [price,setPrice] = useState('free')
     const [location,setLocation] = useState('On Request')
     const [willDeliver,setWillDeliver] = useState(false)
+    const [checkedBox, setCheckedBox] = useState(false)
     const navigate = useNavigate()
+
+    function handleCheckBox (){
+        if (checkedBox) {
+            setCheckedBox(true)
+        } else {
+            setCheckedBox(false)
+        } return checkedBox
+    }
     const handleSubmit = async (event) => {
         
         event.preventDefault()
@@ -49,7 +58,7 @@ const AddPosts = ({username, setPosts, posts}) => {
                 </label>
                 <input className="postTitles" onChange={(event)=>{setPrice(event.target.value)}}type='text' price='price' value = {price} required/>
                 <div className="postTitles" > 
-                <input id="checkbox" className="postTitles" onChange={(event)=>{setWillDeliver(event.target.value)}}type='checkbox'  name='delivery' value={willDeliver}/>
+                <input id="checkbox" className="postTitles" onChange={(event)=>{setWillDeliver({handleCheckBox})}}type='checkbox'  name='delivery' value={willDeliver}/>
                 Will Deliver
                 </div> 
                 <button className="submitPost" type="submit">Submit Post</button>
