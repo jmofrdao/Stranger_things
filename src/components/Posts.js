@@ -33,11 +33,11 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           <p className='descriptions'>Delivery: Yes</p>
             :null
           }
-          { isLoggedIn && post.author.username !== username ?
+          {post.author.username !== username ?
           <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
           }
-          { isLoggedIn && post.author.username === username ?
+          { localStorage.getItem("token") && post.author.username === localStorage.getItem("username") ?
           <>
           <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
           <button>Edit will go here</button>
@@ -62,12 +62,12 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
           <p className='descriptions'>Delivery: Yes</p>
             :null
           }
-        { isLoggedIn && post.author.username !== username ?
+        {  post.author.username !== username ?
           <NewMessage myInfo={myInfo} setMyInfo={setMyInfo} _id={post._id} post={post}/>
           :null
         }
         
-        { isLoggedIn && post.author.username === username ?
+        {localStorage.getItem("token") && post.author.username === localStorage.getItem("username") ?
           <>
           <DeletePosts post={post} _id={post._id} posts={posts} setPosts={setPosts}  />
           <button>Edit will go here</button>
@@ -82,8 +82,8 @@ const Posts = ({ posts, setPosts, isLoggedIn, myInfo, setMyInfo, username, post 
 
   
   return (
-    <div class="bigBox">
-    { localStorage.getItem("token") ? 
+    <div className="bigBox">
+    { localStorage.getItem("token") && isLoggedIn ? 
     <div id="addNewLink">
     <NavLink to='/AddPosts'>Add New Post</NavLink>
     

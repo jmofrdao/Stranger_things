@@ -29,9 +29,9 @@ const Profile = ({ myInfo, setMyInfo }) => {
       {myInfo && myInfo.messages && myInfo.messages.length ? (
         myInfo.messages.map((message, index) => {
           return (
-            <div>
+            <div key={`mymessagesmap: ${index}`}>
               {message.fromUser.username !== myInfo.username ? (
-                <div id="myMessages" key={`mymessagesmap: ${index}`}>
+                <div id="myMessages" >
                   <h3>From: {message.fromUser.username}</h3>
                   <h3>In Response to: {message.post.title}</h3>
                   <p>Message: {message.content}</p>
@@ -47,9 +47,9 @@ const Profile = ({ myInfo, setMyInfo }) => {
       {myInfo && myInfo.messages && myInfo.messages.length ? (
         myInfo.messages.map((message, index) => {
           return (
-            <div>
+            <div key={`mymessagesmap: ${index}`}>
               {message.fromUser.username === myInfo.username ? (
-                <div id="myMessages" key={`mymessagesmap: ${index}`}>
+                <div id="myMessages" >
                   <h3>From: me</h3>
                   <h3>In Response to: {message.post.title}</h3>
                   <p>Message: {message.content}</p>

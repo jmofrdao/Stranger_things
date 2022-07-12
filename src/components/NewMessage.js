@@ -13,10 +13,18 @@ const handleSubmit = async (event) => {
     const postID = post._id
     const token = localStorage.getItem('token')
     const myMessage = await createMessage(token, postID, typedMessage)
-    console.log(myMessage)
+    setTypedMessage('')
+    if (myMessage) {
+       return alert ("Message delivered!")
+       
+    }
     
 }
-
+// function sentMessage () {
+// if (myMessage) {
+//     return "Message delivered!"
+// }
+// }
 return  (
     <aside>
         <form onSubmit={handleSubmit}>
